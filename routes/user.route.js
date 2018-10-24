@@ -1,9 +1,30 @@
-const express = require('express'); 
-var multer  = require('multer');
+const express = require('express');
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+
+const storage = multer.diskStorage({
+    filename: function (req, file, callback) {
+        callback(null, Date.now() + file.originalname);
+    }
+})
+
+const imgFilter = (req, file, cb) => {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+}
+
+var upload = multer({
+    storage,
+    fileFilter: imgFilter
+});
+
+
 
 const validate = require('../validate/user.validate');
 const controller = require('../controller/user.controller');
-var upload = multer({ dest: './public/uploads/' });
+
 
 
 const router = express.Router();

@@ -40,7 +40,7 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie: {maxAge: 180*60*1000}
 }));
-// app.use(sessionMiddle);
+
 
 
 app.use(express.static('public'))
@@ -51,7 +51,6 @@ app.use(function(req, res, next){
 })
 app.get('/', async function(req, res) {
     const products = await Product.find().skip(0).limit(3);
-    // const newProducts =  products.slice(0,3);
     res.render('index', {
         products,
         title : 'Homepage'

@@ -1,6 +1,12 @@
 
 const User = require('../models/user.model');
+const cloudinary = require('cloudinary');
 
+cloudinary.config({
+    cloud_name: 'dongvu',
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRECT
+})
 module.exports.index = async (req, res) => {
     const users = await User.find();
     res.render('users/index', {
@@ -37,8 +43,12 @@ module.exports.deleteId = async (req, res) => {
     res.redirect('/contact');
 }
 module.exports.postCreate = async (req, res) => {
-    req.body.avatar = req.file.path.split('\\').slice(1).join('/');
-    const newUser = new User(req.body);
-    await newUser.save();
-    res.redirect('/contact');
+    cloudinary.uploader.upload(req.file.path, async (result) => {
+        console.log(result.url);
+        req.body.avatar = result.secure_url;
+        const newUser = new User(req.body);
+        await newUser.save();
+        res.redirect('/contact');
+    })
+
 }
