@@ -44,7 +44,6 @@ module.exports.deleteId = async (req, res) => {
 }
 module.exports.postCreate = async (req, res) => {
     cloudinary.uploader.upload(req.file.path, async (result) => {
-        console.log(result.url);
         req.body.avatar = result.secure_url;
         const newUser = new User(req.body);
         await newUser.save();
