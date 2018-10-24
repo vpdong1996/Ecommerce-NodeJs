@@ -1,0 +1,50 @@
+extends ../layout/common
+block content
+    .wrap.cf
+        h1.projTitle
+            | Fashe.
+            span -Shop
+            |  Shopping Cart
+        .heading.cf
+            h1 My Cart
+            a.continue(href='/products') Continue Shopping
+        .cart
+            ul.cartWrap
+                if products
+                    each product in products
+                        li.items.odd
+                            .infoWrap
+                                .cartSection
+                                    img.itemImg(src=product.item.image alt='')
+                                    p.itemNumber=product.item.brand
+                                    h3=product.item.name
+                                    p
+                                        input.qty(type='text' placeholder=product.quantity)
+                                    |  x $#{product.item.price}.00
+                                    p.stockStatus  In Stock
+                                .prodTotal.cartSection
+                                    p $#{product.price}.00
+                                .cartSection.removeWrap
+                                    a.remove(href=`cart/remove/${product.item._id}`) x
+                else
+                                       
+        .promoCode
+            label(for='promo') Have A Promo Code?
+            input(type='text' name='promo' placholder='Enter Code')
+            a.btn(href='#')
+        .subtotal.cf
+            ul
+                li.totalRow
+                    span.label Subtotal
+                    span.value $#{totalPrice}.00
+                li.totalRow
+                    span.label Shipping
+                    span.value $0.00
+                li.totalRow
+                    span.label Tax
+                    span.value $0.00
+                li.totalRow.final
+                    span.label Total
+                    span.value $#{totalPrice}.00
+                li.totalRow
+                    a.btn.continue(href='/payment') Checkout

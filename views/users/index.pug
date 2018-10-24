@@ -1,0 +1,24 @@
+extends ../layout/common
+block content
+    h1.text-center UserList
+
+    .d-flex.align-items-center
+        a.btn.btn-primary#createUser(href="/contact/create") Create New User
+        form.ml-auto(action="/contact/search",method="GET",class="form-group d-flex")
+            input(type="text", name="q",class="form-control" )
+            button(class="btn btn-info ml-2") Search
+    table.table.mb-5
+        tr
+            th Avatar
+            th Name
+            th Phone
+            th Actions
+        each user in users
+            tr
+                td
+                    img(src=`../${user.avatar}`, width="64")
+                td= user.name
+                td 0#{user.phone}
+                td
+                    a.btn.btn-success#viewUser(href=`/contact/${user.id}`) View
+                    a.btn.btn-danger.ml-2#removeUser(href=`/contact/delete/${user.id}`) Delete 

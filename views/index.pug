@@ -1,0 +1,113 @@
+extends ./layout/common
+block carousel
+    #carouselExampleControls.carousel.slide(data-ride='carousel')
+        .carousel-inner
+            .carousel-item.active
+                img.d-block.w-100(src='https://assets.justinmind.com/blog/wp-content/uploads/2018/03/designing-iPhone-x-with-justinmind-header.png' alt='Third slide' height="669")
+                .carousel-caption.d-none.d-md-block
+                    h1.display-2 Welcome To The Shop
+                    h3.display-4 We're changing the
+                    h3.display-4 World with technology
+                    a.btn.btn-info-custom.float-none.mt-3(href=`/products`) Shop Now 
+            .carousel-item
+                img.d-block.w-100(src='https://www.gradwell.com/wp-content/uploads/2018/05/S8-BANNER.png' alt='Second slide' height="669")
+            .carousel-item
+                img.d-block.w-100(src='http://apple8.com.vn/upload/news/media/39.2018/iphone-xr-banner.jpg' alt='First slide' height="669")
+        a.carousel-control-prev(href='#carouselExampleControls' role='button' data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleControls' role='button' data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
+    .container-fluid.p-0
+        h2.text-center.projTitle FEATURED PRODUCTS
+        .row
+            //- each product in products 
+            //-     .col-md-4.d-flex.justify-content-center.wow.lightSpeedIn  
+            //-         .card.border-white(style='width: 18rem;')
+            //-             img.card-img-top(src=product.image alt='Card image cap')
+            //-             .card-body.d-flex.flex-column.align-items-center
+            //-                 p.card-text=product.description
+            //-                 a.btn.btn-info.text-white(href=`/products/${product.id}`) See detail
+            each product in products
+                .col-md-4.d-flex.justify-content-center.wow.lightSpeedIn
+                    .card.border-white(style='width: 18rem;')
+                        img.card-img-top(src=product.image alt='img')
+                        .card-body.text-center
+                            h6.card-title=product.name
+                            .pro-rating
+                                a(href="#")
+                                    i.zmdi.zmdi-star
+                                a(href="#")
+                                    i.zmdi.zmdi-star
+                                a(href="#")
+                                    i.zmdi.zmdi-star
+                                a(href="#")
+                                    i.zmdi.zmdi-star-half
+                                a(href="#")
+                                    i.zmdi.zmdi-star-outline
+                            p.big.card-text $ #{product.price}.00
+                            .icon.d-flex.justify-content-center
+                                ul.action-button.list-unstyled.p-0.d-flex
+                                    li
+                                        a(href='#')
+                                            i.zmdi.zmdi-favorite
+                                    li
+                                        a(href=`/products/${product.id}`)
+                                            i.zmdi.zmdi-zoom-in
+                                    li
+                                        a(href='#')
+                                            i.zmdi.zmdi-refresh
+                                    li
+                                        a(href=`/cart/add/${product.id}`)
+                                            i.zmdi.zmdi-shopping-cart-plus
+
+        .row.justify-content-center
+            a(href="/products").btn.btn-primary.text-white.mt-5 VIEW ALL
+
+        figure#hero1.hero.mt-5
+            .inner
+                .copy
+                    h1 Just hurry up limited offer!
+                    p.text-white Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        .container.p-5.mb-3
+            .row
+                .col-md-4
+                    .icon_box.text-center
+                        .icon_box_image
+                            img(src="https://colorlib.com/preview/theme/sublime/images/icon_1.svg", alt="ship")
+                        .icon_box_title Free Shipping Worldwide
+                        .icon_box_desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
+                .col-md-4
+                    .icon_box.text-center
+                        .icon_box_image
+                            img(src="https://colorlib.com/preview/theme/sublime/images/icon_2.svg", alt="returns")
+                        .icon_box_title Free Returns
+                        .icon_box_desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
+                .col-md-4
+                    .icon_box.text-center
+                        .icon_box_image
+                            img(src="https://colorlib.com/preview/theme/sublime/images/icon_3.svg", alt="support")
+                        .icon_box_title 24h Fast Support
+                        .icon_box_desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.    
+        .subcribe-box
+            .container
+                .row
+                    .col-md-8.col-md-offset-2.d-flex.align-items-center
+                        .col-md-6.text-center.text-white
+                            h3 Sign Up for a Newsletter
+                        .col-md-6
+                            form.form-inline.qbstp-header-subscribe
+                                .row
+                                    .col-md-12
+                                        .form-group
+                                            input#email.form-control(type="text", name="email", placeholder="Enter Your Email")
+                                            button.btn.btn-primary(type="submit") Subscribe
+
+
+
+
+

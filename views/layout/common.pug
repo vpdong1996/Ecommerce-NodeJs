@@ -1,0 +1,113 @@
+html
+    head
+        link(rel="shortcut icon", href="../images/logo/nodejs_z3a_icon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css")
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.4.1/css/all.css")
+        link(rel="stylesheet", href="/styles/custom.css")
+        title #{title}
+    body
+        nav.navbar.navbar-expand-lg.navbar-trans
+            a.navbar-brand(href='#')
+                img(src="../images/logo/logo.png") 
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarNav.collapse.navbar-collapse
+                ul.navbar-nav.ml-auto
+                    li.nav-item
+                        a.nav-link.bold.p-0(href='/') Home
+                    li.nav-item
+                        a.nav-link.bold.p-0(href='/contact') Contact
+                    li.nav-item.box
+                        a.nav-link.bold.p-0(href='/products') Products
+                    li.nav-item.box.notify
+                        a.nav-link.bold.p-0.cart(href='/cart') Cart
+                            if session.cart
+                                span.notification--num #{session.cart.totalQuantity}
+        block carousel                
+        .container
+            block content
+        section.footers.bg-light.pt-5.pb-3
+            .container.pt-5
+                .row
+                    .col-xs-12.col-sm-6.col-md-4.footers-one
+                        .footers-logo
+                            img(src='../images/logo/logo.png' alt='Logo' style='width:120px;')
+                        .footers-info.mt-3
+                            p
+                                | Cras sociis natoque penatibus et magnis Lorem Ipsum tells about the compmany right now the best.
+                        .social-icons
+                            a(href='https://www.facebook.com/')
+                                i#social-fb.fa.fa-facebook-square.fa-2x.social
+                            a(href='https://twitter.com/')
+                                i#social-tw.fa.fa-twitter-square.fa-2x.social
+                            a(href='https://plus.google.com/')
+                                i#social-gp.fa.fa-google-plus-square.fa-2x.social
+                            a(href='mailto:bootsnipp@gmail.com')
+                                i#social-em.fa.fa-envelope-square.fa-2x.social
+                    .col-xs-12.col-sm-6.col-md-2.footers-two
+                        h5 Essentials 
+                        ul.list-unstyled
+                            li
+                                a(href='maintenance.html') Search
+                            li
+                                a(href='contact.html') Sell your Car
+                            li
+                                a(href='about.html') Advertise with us
+                            li
+                                a(href='about.html') Dealers Portal
+                            li
+                                a(href='about.html') Post Requirements
+                    .col-xs-12.col-sm-6.col-md-2.footers-three
+                        h5 Information 
+                        ul.list-unstyled
+                            li
+                                a(href='maintenance.html') Register Now
+                            li
+                                a(href='contact.html') Advice
+                            li
+                                a(href='about.html') Videos
+                            li
+                                a(href='about.html') Blog
+                            li
+                                a(href='about.html') Services
+                    .col-xs-12.col-sm-6.col-md-2.footers-four
+                        h5 Explore 
+                        ul.list-unstyled
+                            li
+                                a(href='maintenance.html') News
+                            li
+                                a(href='contact.html') Sitemap
+                            li
+                                a(href='about.html') Testimonials
+                            li
+                                a(href='about.html') Feedbacks
+                            li
+                                a(href='about.html') User Agreement
+                    .col-xs-12.col-sm-6.col-md-2.footers-five
+                        h5 Company 
+                        ul.list-unstyled
+                            li
+                                a(href='maintenance.html') Career
+                            li
+                                a(href='about.html') For Parters
+                            li
+                                a(href='about.html') Terms
+                            li
+                                a(href='about.html') Policy
+                            li
+                                a(href='contact.html') Contact Us
+        section.copyright.border
+            .container
+                .row.text-center
+                    .col-md-12.pt-3
+                        p.text-muted &copy; 2018 DongVu Software Ltd.
+
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+        script(src="../scripts/script.js")
