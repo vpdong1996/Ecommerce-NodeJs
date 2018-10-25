@@ -72,27 +72,38 @@ block carousel
                     p.text-white Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         .container.p-5.mb-3
             .row
-                .col-md-4
-                    .icon_box.text-center
-                        .icon_box_image
-                            img(src="https://colorlib.com/preview/theme/sublime/images/icon_1.svg", alt="ship")
-                        .icon_box_title Free Shipping Worldwide
-                        .icon_box_desc
-                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
-                .col-md-4
-                    .icon_box.text-center
-                        .icon_box_image
-                            img(src="https://colorlib.com/preview/theme/sublime/images/icon_2.svg", alt="returns")
-                        .icon_box_title Free Returns
-                        .icon_box_desc
-                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
-                .col-md-4
-                    .icon_box.text-center
-                        .icon_box_image
-                            img(src="https://colorlib.com/preview/theme/sublime/images/icon_3.svg", alt="support")
-                        .icon_box_title 24h Fast Support
-                        .icon_box_desc
-                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.    
+                mixin icon_block(imgSrc, title)
+                    .col-md-4
+                        .icon_box.text-center
+                            .icon_box_image
+                                img(src=imgSrc, alt=title)
+                            .icon_box_title=title
+                            .icon_box_desc
+                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
+                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_1.svg",'Free Shipping Worldwide')
+                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_1.svg",'Free Shipping Worldwide')
+                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_1.svg",'Free Shipping Worldwide')
+                //- .col-md-4
+                //-     .icon_box.text-center
+                //-         .icon_box_image
+                //-             img(src="https://colorlib.com/preview/theme/sublime/images/icon_1.svg", alt="ship")
+                //-         .icon_box_title Free Shipping Worldwide
+                //-         .icon_box_desc
+                //-             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
+                //- .col-md-4
+                //-     .icon_box.text-center
+                //-         .icon_box_image
+                //-             img(src="https://colorlib.com/preview/theme/sublime/images/icon_2.svg", alt="returns")
+                //-         .icon_box_title Free Returns
+                //-         .icon_box_desc
+                //-             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
+                //- .col-md-4
+                //-     .icon_box.text-center
+                //-         .icon_box_image
+                //-             img(src="https://colorlib.com/preview/theme/sublime/images/icon_3.svg", alt="support")
+                //-         .icon_box_title 24h Fast Support
+                //-         .icon_box_desc
+                //-             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.    
         .subcribe-box
             .container
                 .row
