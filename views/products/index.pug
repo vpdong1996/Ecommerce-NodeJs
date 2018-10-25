@@ -15,18 +15,6 @@ block content
             - var productInRow = products.slice(firstProduct, lastProduct);
             .row(id=n)
                 each product in productInRow   
-                    //- .col-lg-4.p-3
-                    //-     .card.wow.bounceInUp(class='text-center',style='width: 18rem;')
-                    //-         img.card-img-top(src=`${product.image}` alt='')
-                    //-         .card-body
-                    //-             h4.card-title=product.name
-                    //-             p.card-text=product.description
-                    //-             .d-flex.justify-content-between.align-items-center
-                    //-                 .btn-group.p-0
-                    //-                     a.btn.btn-outline-success(href=`/cart/add/${product.id}`) Add to cart
-                    //-                 h3.mb-0.ml-2
-                    //-                     span.badge.badge-pill.badge-warning=`$${product.price}`
-                    //-                 //- btn.badge.badge-light(href='#')=`$${product.price}`
                     .col-md-4.p-4.d-flex.justify-content-center.wow.lightSpeedIn
                         .card.border-white(style='width: 18rem;')
                             img.card-img-top(src=product.image alt='img')
@@ -47,16 +35,16 @@ block content
                                 .icon.d-flex.justify-content-center
                                     ul.action-button.list-unstyled.p-0.d-flex
                                         li
-                                            a(href='#')
+                                            a(href='#',data-toggle="tooltip", data-placement="right", title="Add to Favorite")
                                                 i.zmdi.zmdi-favorite
                                         li
-                                            a(href=`/products/${product.id}`)
+                                            a(href=`/products/${product.id}`,data-toggle="tooltip", data-placement="right", title="View details")
                                                 i.zmdi.zmdi-zoom-in
                                         li
-                                            a(href='#')
+                                            a(href='#',data-toggle="tooltip", data-placement="right", title="Refresh")
                                                 i.zmdi.zmdi-refresh
                                         li
-                                            a(href=`/cart/add/${product.id}`)
+                                            a(href=`/cart/add/${product.id}`,data-toggle="tooltip", data-placement="right", title="Add to Cart")
                                                 i.zmdi.zmdi-shopping-cart-plus
     if productsLength > 0
         ul.pagination.justify-content-center.mt-5.p-5

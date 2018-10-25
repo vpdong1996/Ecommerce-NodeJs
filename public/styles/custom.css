@@ -14,7 +14,9 @@ body {
 * {
     box-sizing: border-box;
 }
-
+.orange {
+    color: tomato !important; 
+}
 a {
     color: black;
 }
@@ -766,6 +768,7 @@ a.remove:hover {
 .promoCode a.btn {
     float: left;
     width: 15%;
+    height: 42px;
     padding: 0.75em 0;
     border-radius: 0 1em 1em 0;
     text-align: center;
@@ -791,6 +794,7 @@ a.remove:hover {
     -ms-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
     transition: all 0.25s linear;
+    border: none;
 }
 
 .btn:after {

@@ -47,58 +47,17 @@ html
                                 i#social-gp.fa.fa-google-plus-square.fa-2x.social
                             a(href='mailto:bootsnipp@gmail.com')
                                 i#social-em.fa.fa-envelope-square.fa-2x.social
-                    .col-xs-12.col-sm-6.col-md-2.footers-two
-                        h5 Essentials 
-                        ul.list-unstyled
-                            li
-                                a(href='maintenance.html') Search
-                            li
-                                a(href='contact.html') Sell your Car
-                            li
-                                a(href='about.html') Advertise with us
-                            li
-                                a(href='about.html') Dealers Portal
-                            li
-                                a(href='about.html') Post Requirements
-                    .col-xs-12.col-sm-6.col-md-2.footers-three
-                        h5 Information 
-                        ul.list-unstyled
-                            li
-                                a(href='maintenance.html') Register Now
-                            li
-                                a(href='contact.html') Advice
-                            li
-                                a(href='about.html') Videos
-                            li
-                                a(href='about.html') Blog
-                            li
-                                a(href='about.html') Services
-                    .col-xs-12.col-sm-6.col-md-2.footers-four
-                        h5 Explore 
-                        ul.list-unstyled
-                            li
-                                a(href='maintenance.html') News
-                            li
-                                a(href='contact.html') Sitemap
-                            li
-                                a(href='about.html') Testimonials
-                            li
-                                a(href='about.html') Feedbacks
-                            li
-                                a(href='about.html') User Agreement
-                    .col-xs-12.col-sm-6.col-md-2.footers-five
-                        h5 Company 
-                        ul.list-unstyled
-                            li
-                                a(href='maintenance.html') Career
-                            li
-                                a(href='about.html') For Parters
-                            li
-                                a(href='about.html') Terms
-                            li
-                                a(href='about.html') Policy
-                            li
-                                a(href='contact.html') Contact Us
+                    mixin footer(title,...items)
+                        .col-xs-12.col-sm-6.col-md-2
+                            h5=title 
+                            ul.list-unstyled
+                                each item in items
+                                    li
+                                        a(href='maintenance.html') #{item}
+                    +footer('Essentials','Search','Sell your Car','Advertise with us','Dealers Portal','Post Requirements')
+                    +footer('Information','Search','Sell your Car','Advertise with us','Dealers Portal','Post Requirements')
+                    +footer('Explore','Search','Sell your Car','Advertise with us','Dealers Portal','Post Requirements')
+                    +footer('Company','Search','Sell your Car','Advertise with us','Dealers Portal','Post Requirements')    
         section.copyright.border
             .container
                 .row.text-center

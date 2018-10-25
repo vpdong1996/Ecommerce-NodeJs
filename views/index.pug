@@ -50,16 +50,16 @@ block carousel
                             .icon.d-flex.justify-content-center
                                 ul.action-button.list-unstyled.p-0.d-flex
                                     li
-                                        a(href='#')
+                                        a(href='#',data-toggle="tooltip", data-placement="right", title="Add to Favorite")
                                             i.zmdi.zmdi-favorite
                                     li
-                                        a(href=`/products/${product.id}`)
+                                        a(href=`/products/${product.id}`,data-toggle="tooltip", data-placement="right", title="View details")
                                             i.zmdi.zmdi-zoom-in
                                     li
-                                        a(href='#')
+                                        a(href='#',,data-toggle="tooltip", data-placement="right", title="Refresh")
                                             i.zmdi.zmdi-refresh
                                     li
-                                        a(href=`/cart/add/${product.id}`)
+                                        a(href=`/cart/add/${product.id}`,,data-toggle="tooltip", data-placement="right", title="Add to Cart")
                                             i.zmdi.zmdi-shopping-cart-plus
 
         .row.justify-content-center
@@ -81,29 +81,8 @@ block carousel
                             .icon_box_desc
                                 p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
                 +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_1.svg",'Free Shipping Worldwide')
-                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_1.svg",'Free Shipping Worldwide')
-                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_1.svg",'Free Shipping Worldwide')
-                //- .col-md-4
-                //-     .icon_box.text-center
-                //-         .icon_box_image
-                //-             img(src="https://colorlib.com/preview/theme/sublime/images/icon_1.svg", alt="ship")
-                //-         .icon_box_title Free Shipping Worldwide
-                //-         .icon_box_desc
-                //-             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
-                //- .col-md-4
-                //-     .icon_box.text-center
-                //-         .icon_box_image
-                //-             img(src="https://colorlib.com/preview/theme/sublime/images/icon_2.svg", alt="returns")
-                //-         .icon_box_title Free Returns
-                //-         .icon_box_desc
-                //-             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.
-                //- .col-md-4
-                //-     .icon_box.text-center
-                //-         .icon_box_image
-                //-             img(src="https://colorlib.com/preview/theme/sublime/images/icon_3.svg", alt="support")
-                //-         .icon_box_title 24h Fast Support
-                //-         .icon_box_desc
-                //-             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.    
+                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_2.svg",'Free Returns')
+                +icon_block("https://colorlib.com/preview/theme/sublime/images/icon_3.svg",'24h Fast Support')    
         .subcribe-box
             .container
                 .row
