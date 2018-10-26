@@ -6,3 +6,5 @@
   <li><pre>Npm start</pre></li>
   <li><pre>create your .env file for Enviroment variables: MONGO_URI, APP_COOKIE, Stripe token, Cloudinary API</pre></li>
 </ul>
+<h1> Live Demo </h1>
+<pre>https://ecommerce-shop-dongvu.herokuapp.com</pre>
