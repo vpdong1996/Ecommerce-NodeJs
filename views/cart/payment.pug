@@ -2,8 +2,6 @@ extends ../layout/common
 block content
     .py-5.text-center
     h2 Payment Form
-    p.lead
-        | Below is an example form built entirely with Bootstrap&apos;s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.
     .row
         .col-md-4.order-md-2.mb-4
             h4.d-flex.justify-content-between.align-items-center.mb-3
@@ -25,25 +23,18 @@ block content
                 li.list-group-item.d-flex.justify-content-between
                     span Total (USD)
                     strong $#{totalPrice}
-            form.card.p-2
+            .card.p-2
                 .input-group
                     input.form-control(type='text' placeholder='Promo code')
                     .input-group-append
-                        button.btn.btn-secondary(type='submit') Redeem
+                        button.btn.btn-secondary Redeem
         .col-md-8.order-md-1
             h4.mb-3 Billing address
-            form.needs-validation#checkout-form(novalidate='', method="post", action="/")
-                .row
-                    .col-md-12.mb-3
-                        label(for='name') Name
-                        input#name.form-control(type='text' placeholder='' value='' required='')
-                        .invalid-feedback
-                            | Valid first name is required.
-                    //- .col-md-6.mb-3
-                    //-     label(for='lastName') Last name
-                    //-     input#lastName.form-control(type='text' placeholder='' value='' required='')
-                    //-     .invalid-feedback
-                    //-         | Valid last name is required.
+            form.needs-validation#payment-form(novalidate method="post", action="/payment")
+                .mb-3
+                    label(for='name') Name
+                    input#name.form-control(type='text' required)
+                    .invalid-feedback Valid first name is required.
                 .mb-3
                     label(for='username') Username
                     .input-group
@@ -56,37 +47,36 @@ block content
                         | Email 
                         span.text-muted (Optional)
                     input#email.form-control(type='email' placeholder='you@example.com')
-                    .invalid-feedback
-                        | Please enter a valid email address for shipping updates.
+                    .invalid-feedback Please enter a valid email address for shipping updates.
                 .mb-3
                     label(for='address') Address
-                    input#address.form-control(type='text' placeholder='1234 Main St' required='')
-                    .invalid-feedback
-                    | Please enter your shipping address.
+                    input#address.form-control(type='text' placeholder='1234 Main St' required)
+                    .invalid-feedback Please enter your shipping address.
+                .mb-3
+                    label(for='address2') Address 2
+                        span  (Optional)
+                    input#address2.form-control(type='text' placeholder='Apartment or suite') 
                 .row
                     .col-md-5.mb-3
                         label(for='country') Country
-                        select#country.custom-select.d-block.w-100(required='')
+                        select#country.custom-select.d-block.w-100(required)
                             option(value='') Choose...
                             option United States
                             option Viet Nam
                             option China
-                        .invalid-feedback
-                            | Please select a valid country.
+                        .invalid-feedback Please select a valid country.
                     .col-md-4.mb-3
                         label(for='state') State
-                        select#state.custom-select.d-block.w-100(required='')
+                        select#state.custom-select.d-block.w-100(required)
                             option(value='') Choose...
                             option California
                             option Ho Chi Minh
                             option Beijing
-                        .invalid-feedback
-                            | Please provide a valid state.
+                        .invalid-feedback Please provide a valid state.
                     .col-md-3.mb-3
                         label(for='zip') Zip
-                        input#zip.form-control(type='text' placeholder='' required='')
-                        .invalid-feedback
-                            | Zip code required.
+                        input#zip.form-control(type='text' placeholder='' required)
+                        .invalid-feedback Zip code required.
                 hr.mb-4
                 .custom-control.custom-checkbox
                     input#same-address.custom-control-input(type='checkbox')
@@ -98,39 +88,19 @@ block content
                 h4.mb-3 Payment
                 .d-block.my-3
                     .custom-control.custom-radio
-                        input#credit.custom-control-input(name='paymentMethod' type='radio' checked='' required='')
+                        input#credit.custom-control-input(name='paymentMethod' type='radio' checked='')
                         label.custom-control-label(for='credit') Credit card
                     .custom-control.custom-radio
-                        input#debit.custom-control-input(name='paymentMethod' type='radio' required='')
+                        input#debit.custom-control-input(name='paymentMethod' type='radio')
                         label.custom-control-label(for='debit') Debit card
                     .custom-control.custom-radio
-                        input#paypal.custom-control-input(name='paymentMethod' type='radio' required='')
+                        input#paypal.custom-control-input(name='paymentMethod' type='radio')
                         label.custom-control-label(for='paypal') Paypal
-                .row
-                    .col-md-6.mb-3
-                        label(for='cc-name') Name on card
-                        input#card-name.form-control(type='text' placeholder='' required='')
-                        small.text-muted Full name as displayed on card
-                        .invalid-feedback
-                            | Name on card is required
-                    .col-md-6.mb-3
-                        label(for='cc-number') Credit card number
-                        input#card-number.form-control(type='text' placeholder='' required='')
-                        .invalid-feedback
-                            | Credit card number is required
-                .row
-                    .col-md-3.mb-3
-                        label(for='card-expiry-year') Expiration
-                        input#card-expiry-year.form-control(type='text' placeholder='' required='')
-                        .invalid-feedback
-                            | Expiration date required
-                    .col-md-3.mb-3
-                        label(for='card-cvc') CVC
-                        input#card-cvc.form-control(type='text' placeholder='' required='')
-                        .invalid-feedback
-                            | Security code required
+                #card-element
+
+                #card-errors(role="alert")    
                 hr.mb-4
-                button.btn.btn-primary.btn-lg.btn-block(type='submit') Continue to checkout
+                button.btn.btn-primary.btn-lg.btn-block Continue to checkout
     footer.my-5.pt-5.text-muted.text-center.text-small
         p.mb-1 &copy; 2017-2018 Company Name
         ul.list-inline
@@ -140,3 +110,6 @@ block content
                 a(href='#') Terms
             li.list-inline-item
                 a(href='#') Support
+block stripe
+    script(src="/scripts/script.js")
+    script(src="/scripts/stripe.js")

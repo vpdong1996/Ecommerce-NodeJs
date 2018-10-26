@@ -21,7 +21,6 @@ module.exports.checkout = (req, res, next) => {
         res.render('cart/index');
     }
     const cart = new Cart(req.session.cart);
-    const sanPham = cart.generateArray();
     res.render('cart/index',{
         products: cart.generateArray(),
         totalPrice : cart.totalPrice,

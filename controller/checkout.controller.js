@@ -2,9 +2,7 @@ const Cart = require('../models/cart.model');
 
 module.exports.index = (req, res) => {
     if (!req.session.cart) {
-        return res.render('cart/index', {
-            products : null
-        })
+        return res.redirect('/cart')
     }
     const cart = new Cart(req.session.cart);
 
