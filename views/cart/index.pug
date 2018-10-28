@@ -5,6 +5,8 @@ block content
             span.orange .
             span -Shop
                 span Shopping Cart
+        if  successMsg
+            h5.alert.alert-success #{successMsg}
         .heading.cf
             h1 My Cart
             a.continue(href='/products') Continue Shopping
@@ -27,24 +29,28 @@ block content
                                 .cartSection.removeWrap
                                     a.remove(href=`cart/remove/${product.item._id}`) x
                 else
-                                       
-        .promoCode
-            label(for='promo') Have A Promo Code?
-            input(type='text' name='promo' placholder='Enter Code')
-            a.btn(href='#')
-        .subtotal.cf
-            ul
-                li.totalRow
-                    span.label Subtotal
-                    span.value $#{totalPrice}.00
-                li.totalRow
-                    span.label Shipping
-                    span.value $0.00
-                li.totalRow
-                    span.label Tax
-                    span.value $0.00
-                li.totalRow.final
-                    span.label Total
-                    span.value $#{totalPrice}.00
-                li.totalRow
-                    a.btn.continue(href='/payment') Checkout
+                    li.items.odd
+                        .infoWrap
+                            .cartSection
+                                h1.text-center(style="color:#777") You don't have any items in your cart
+        if products
+            .promoCode
+                label(for='promo') Have A Promo Code?
+                input(type='text' name='promo' placholder='Enter Code')
+                a.btn(href='#')
+            .subtotal.cf
+                ul
+                    li.totalRow
+                        span.label Subtotal
+                        span.value $#{totalPrice}.00
+                    li.totalRow
+                        span.label Shipping
+                        span.value $0.00
+                    li.totalRow
+                        span.label Tax
+                        span.value $0.00
+                    li.totalRow.final
+                        span.label Total
+                        span.value $#{totalPrice}.00
+                    li.totalRow
+                        a.btn.continue(href='/payment') Checkout

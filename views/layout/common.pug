@@ -24,7 +24,7 @@ html
                         a.nav-link.bold.p-0(href='/products') Products
                     li.nav-item.box.notify
                         a.nav-link.bold.p-0.cart(href='/cart') Cart
-                            if session.cart
+                            if session.cart && session.cart != null
                                 span.notification--num #{session.cart.totalQuantity}
         block carousel                
         .container
@@ -39,14 +39,14 @@ html
                             p
                                 | Cras sociis natoque penatibus et magnis Lorem Ipsum tells about the compmany right now the best.
                         .social-icons
-                            a(href='https://www.facebook.com/')
-                                i#social-fb.fa.fa-facebook-square.fa-2x.social
-                            a(href='https://twitter.com/')
-                                i#social-tw.fa.fa-twitter-square.fa-2x.social
-                            a(href='https://plus.google.com/')
-                                i#social-gp.fa.fa-google-plus-square.fa-2x.social
-                            a(href='mailto:bootsnipp@gmail.com')
-                                i#social-em.fa.fa-envelope-square.fa-2x.social
+                            a.p-3(href='https://www.facebook.com/')
+                                i#social-fb.fab.fa-facebook-f.fa-2x.social
+                            a.p-3(href='https://twitter.com/')
+                                i#social-tw.fab.fa-instagram.fa-2x.social
+                            a.p-3(href='https://plus.google.com/')
+                                i#social-gp.fab.fa-twitter.fa-2x.social
+                            a.p-3(href='mailto:bootsnipp@gmail.com')
+                                i#social-em.fab.fa-google-plus-g.fa-2x.social
                     mixin footer(title,...items)
                         .col-xs-12.col-sm-6.col-md-2
                             h5=title 

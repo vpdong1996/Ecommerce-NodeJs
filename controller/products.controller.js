@@ -9,15 +9,16 @@ module.exports.index = async (req, res) => {
     //     })
     // })
     // Sử dụng Async Await ****
-    const products = await Product.find();
+    
     const productsLength = await Product.countDocuments();
     const page = parseInt(req.query.page) || 1;
     const perpage = 6;
     const begin = (page - 1) * perpage;
     const end = begin + perpage;
+    const products = await Product.find().skip(begin).limit(perpage);
     res.render('products/index', {
         title : 'Products Page',
-        products : products.slice(begin, end),
+        products,
         currentPage: page,
         productsLength : Math.ceil(productsLength/perpage)
     });

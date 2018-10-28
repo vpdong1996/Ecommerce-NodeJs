@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -24,10 +25,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 
-
 app.set('view engine', 'pug');
 app.set('views', './views');
-
 
 
 app.use(bodyParser.json()); // for parsing application/json
@@ -40,7 +39,7 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie: {maxAge: 180*60*1000}
 }));
-
+app.use(flash());
 
 
 app.use(express.static('public'))
