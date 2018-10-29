@@ -23,17 +23,6 @@ module.exports.signup = (req, res, next) => {
     });
 };
 module.exports.postSignup = async (req, res,  next) => {
-    const email = await User.findOne({email : req.body.email});
-    const name = await User.findOne({email : req.body.name});
-
-    if(email){
-        req.flash('error', "Email is already in use. Please try with a diffirent Email!");
-        return res.redirect('/authen/signup');
-    }
-    if(name){
-        req.flash('error', "Name is already in use. Please try with a diffirent Name!");
-        return res.redirect('/authen/signup');
-    }
     const newUser = new User({
         email: req.body.email,
         password: md5(req.body.password),

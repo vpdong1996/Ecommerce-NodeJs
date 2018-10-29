@@ -20,4 +20,5 @@ block content
                 td 0#{user.phone}
                 td
                     a.btn.btn-success#viewUser(href=`/contact/${user.id}`) View
-                    a.btn.btn-danger.ml-2#removeUser(href=`/contact/delete/${user.id}`) Delete 
+                    a.btn.btn-success.ml-2#editUser(href=`/contact/${user.id}/update`) Edit
+                    a.btn.btn-danger.ml-2#removeUser(href=`/contact/delete/${user.id}` onclick="return confirm('Are you sure you want to delete?');") Delete 

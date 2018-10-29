@@ -32,3 +32,20 @@ module.exports.postLogin = async (req, res, next) => {
     });
     next();
 }
+module.exports.postSignUp = async (req, res, next) => {
+    const email = await User.findOne({email : req.body.email});
+    const name = await User.findOne({email : req.body.name});
+    if(!req.body.email){
+        req.flash('error', "Email is empty!");
+        return res.redirect('/authen/signup');
+    }
+    if(email){
+        req.flash('error', "Email is already in use. Please try with a diffirent Email!");
+        return res.redirect('/authen/signup');
+    }
+    if(name){
+        req.flash('error', "Name is already in use. Please try with a diffirent Name!");
+        return res.redirect('/authen/signup');
+    }
+    next();
+}

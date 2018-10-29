@@ -1,11 +1,15 @@
 $(document).ready(function () {
+  console.log('Hello World');
   new WOW().init();
   // Remove Items From Cart
   $('a.remove').click(function () {
     $(this).parent().parent().parent().hide(400);
 
   })
-
+  $("#removeUser").click(function(e) {
+    e.preventDefault();
+    return confirm("Are you sure you want to delete?");
+  })
   $('.owl-carousel').owlCarousel();
 
   // Just for testing, show all items
@@ -71,5 +75,6 @@ $(document).ready(function () {
     form.classList.add('form--no');
 
   });
+  
 })
 

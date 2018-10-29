@@ -5,11 +5,11 @@ block content
         .alert.alert-danger #{errorMsg}
     form.form#signupForm(method="POST", action="/authen/signup")
         .form__group
-            input.form__input(type='text', placeholder='Your name',name="name")
+            input.form__input(type='text', placeholder='Your name',name="name", required)
         .form__group
-            input.form__input(type='email', placeholder='Email',name="email")
+            input.form__input(type='email', placeholder='Email',name="email", required)
         .form__group
-            input.form__input(type='password', placeholder='Password',name="password")
+            input.form__input(type='password', placeholder='Password',name="password", required)
         button#signup(type='submit') Register
 
 

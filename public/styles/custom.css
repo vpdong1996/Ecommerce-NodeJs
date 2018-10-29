@@ -92,11 +92,19 @@ li.nav-item .btn {
     display: flex;
     align-items: center;
     font-family: 'Raleway', sans-serif;
+    border-radius: 40px;
 }
 
 .box {
-    border-radius: 40px;
+    
     border: 2px solid tomato;
+}
+.box:last-child {
+    background: tomato;
+    
+}
+.box:last-child a {
+    color: white;
 }
 
 .bold {
@@ -107,7 +115,7 @@ li.nav-item .btn {
 }
 
 .nav-item:hover {
-    border-width: 3px;
+    
     background: tomato;
 }
 
@@ -130,10 +138,10 @@ li.nav-item .btn {
     position: absolute;
     user-select: none;
     cursor: default;
-    font-size: 0.6rem;
-    background: #e74c3c;
-    width: 1.8rem;
-    height: 1.8rem;
+    font-size: 0.8rem;
+    background: #C74B04;
+    width: 1.6rem;
+    height: 1.6rem;
     color: #ecf0f1;
     display: inline-flex;
     justify-content: center;
@@ -173,7 +181,10 @@ form.search {
     border: none;
     background: linear-gradient(to right, #00b4db, #0083b0);
 }
-
+#editUser {
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);}
 #removeUser {
     border-radius: 30px;
     border: none;
@@ -916,8 +927,6 @@ a.remove:hover {
 .login{
     width: 65%;
     margin: 0 auto;
-    transform: translate3d(0, 500px, 0);
-    animation: arrive 500ms ease-in-out 0.9s forwards;
 }
 .signupText{
     color: #11998e;

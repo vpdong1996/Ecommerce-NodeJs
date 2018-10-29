@@ -21,11 +21,8 @@ var upload = multer({
 });
 
 
-
 const validate = require('../validate/user.validate');
 const controller = require('../controller/user.controller');
-
-
 
 const router = express.Router();
 
@@ -35,5 +32,7 @@ router.get('/create', controller.create);
 router.get('/:id', controller.viewId);
 router.get('/delete/:id', controller.deleteId);
 router.post('/create', upload.single('avatar'), validate.postCreate, controller.postCreate);
+router.get('/:id/update', upload.single('avatar'), controller.editUser);
+router.post('/:id/update', upload.single('avatar'), controller.postEditUser);
 
 module.exports = router;

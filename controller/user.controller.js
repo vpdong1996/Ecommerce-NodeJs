@@ -11,13 +11,13 @@ module.exports.index = async (req, res) => {
     const users = await User.find();
     res.render('users/index', {
         users,
-        title : 'User List'
+        title: 'User List'
     });
-};  
+};
 module.exports.search = async (req, res) => {
     const q = req.query.q;
     const users = await User.find();
-    const matchUsers =  users.filter((user) => {
+    const matchUsers = users.filter((user) => {
         return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
     })
     res.render('users/index', {
@@ -37,7 +37,7 @@ module.exports.viewId = async (req, res) => {
 module.exports.deleteId = async (req, res) => {
     const id = req.params.id;
     await User.findByIdAndRemove({
-        _id : id
+        _id: id
     });
     res.redirect('/contact');
 }
@@ -48,5 +48,34 @@ module.exports.postCreate = async (req, res) => {
         await newUser.save();
         res.redirect('/contact');
     })
+}
+module.exports.editUser = async (req, res, next) => {
+    const id = req.params.id;
+    const user = await User.findById({ _id: id });
+    res.render('users/editUser', {
+        user
+    });
+}
+module.exports.postEditUser = async (req, res, next) => {
+    const id = req.params.id;
+    const user = await User.findOne({ _id: id });
+    if (req.file) {
+        cloudinary.uploader.upload(req.file.path, async (result) => {
+            req.body.avatar = result.secure_url;
+
+            await User.findByIdAndUpdate({ _id: id }, { $set: req.body }, { overwrite: true, new: true })
+            return res.redirect(`/contact`);
+        })
+    }
+    else {
+        await User.findByIdAndUpdate({ _id: id }, {
+            $set: {
+                name: req.body.name,
+                phone: req.body.phone,
+                avatar: user.avatar
+            }
+        })
+        return res.redirect('/contact')
+    }
 
 }
