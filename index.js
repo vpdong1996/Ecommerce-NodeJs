@@ -7,6 +7,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
+const passport = require('passport');
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -39,15 +40,16 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie: {maxAge: 180*60*1000}
 }));
-app.use(flash());
-
-
-app.use(express.static('public'))
-
 app.use(function(req, res, next){
     res.locals.session = req.session;
     next();
 })
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static('public'))
+
+
 app.get('/', async function(req, res) {
     const products = await Product.find().skip(0).limit(3);
     res.render('index', {

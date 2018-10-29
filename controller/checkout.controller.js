@@ -1,8 +1,12 @@
 const Cart = require('../models/cart.model');
 
 module.exports.index = (req, res) => {
-    if (!req.session.cart) {
-        return res.redirect('/cart')
+    // if (!req.session.cart) {
+    //     return res.redirect('/cart')
+    // }
+    if (!req.signedCookies.userId){
+        res.redirect('/authen/login');
+        return;
     }
     const cart = new Cart(req.session.cart);
     const errMsg = req.flash('error')[0];

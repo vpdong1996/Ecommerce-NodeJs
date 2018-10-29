@@ -1,5 +1,6 @@
 extends ../layout/common
 block content
+    h1=user.name
     h1 Create New User
     form(action="/contact/create", method="POST", enctype="multipart/form-data")
         if errors

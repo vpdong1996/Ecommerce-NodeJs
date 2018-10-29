@@ -1,4 +1,5 @@
-module.exports.postCreate = (req,res, next) => {
+
+module.exports.postCreate =  async (req,res, next) => {
     const errors = [];
 
     if(!req.body.name) {

@@ -20,7 +20,6 @@ module.exports.search = async (req, res) => {
     const matchUsers =  users.filter((user) => {
         return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
     })
-    console.log(matchUsers.password);
     res.render('users/index', {
         users: matchUsers
     });

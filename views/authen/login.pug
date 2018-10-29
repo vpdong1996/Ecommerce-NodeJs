@@ -1,13 +1,18 @@
 extends ../layout/common
 block content
-    h1 Login
-    form( method="POST" )
+    h1.text-center Login
+    form.login.p-5( method="POST")
         if errors
             each error in errors
                 .alert.alert-danger= error
+        if successMsg
+            .alert.alert-success #{successMsg}
         .form-group
             label(for="name") Email  
-            input#name(type="text", name="email", class="form-control", value=values ? values.name : "")
+            input#name(type="text", name="email", class="form-control", value=values ? values.name : "", placeholder="Enter your email")
             label(for="phone") Password  
-            input#phone(type="password", name="password",class="form-control", value=values ? values.phone : "")
-        button.btn.btn-primary Login   
+            input#phone(type="password", name="password",class="form-control", value=values ? values.phone : "", placeholder="Your password")
+        button.btn.btn-info Login
+        .signupPopup.float-right
+            span.ml-5 Don't have an account?
+            a.signupText(href="/authen/signup").ml-3 Sign up instead!   

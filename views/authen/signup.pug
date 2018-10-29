@@ -1,0 +1,15 @@
+extends ../layout/common
+block content
+    h2.text-center Sign Up Form
+    if errorMsg 
+        .alert.alert-danger #{errorMsg}
+    form.form#signupForm(method="POST", action="/authen/signup")
+        .form__group
+            input.form__input(type='text', placeholder='Your name',name="name")
+        .form__group
+            input.form__input(type='email', placeholder='Email',name="email")
+        .form__group
+            input.form__input(type='password', placeholder='Password',name="password")
+        button#signup(type='submit') Register
+
+

@@ -48,21 +48,28 @@ $(document).ready(function () {
         }
       }
     });
-    var count = 1;
-    $('#total').text(count);
-    $('.product_quantity').on('click', 'a', function(e) {
-      e.preventDefault();
-      if ($(this).hasClass('fa-chevron-right')) {
-        if (count < 10) {
-          count++;
-          $('#total').text(count);
-        }
-      } else if ($(this).hasClass('fa-chevron-left')) {
-        if (count > 1) {
-          count--;
-          $('#total').text(count);
-        }
+  var count = 1;
+  $('#total').text(count);
+  $('.product_quantity').on('click', 'a', function (e) {
+    e.preventDefault();
+    if ($(this).hasClass('fa-chevron-right')) {
+      if (count < 10) {
+        count++;
+        $('#total').text(count);
       }
-    });
+    } else if ($(this).hasClass('fa-chevron-left')) {
+      if (count > 1) {
+        count--;
+        $('#total').text(count);
+      }
+    }
+  });
+  const button = document.querySelector('.btn')
+  const form = document.querySelector('.form')
+
+  button.addEventListener('click', function () {
+    form.classList.add('form--no');
+
+  });
 })
 

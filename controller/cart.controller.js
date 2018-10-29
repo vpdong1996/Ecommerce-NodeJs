@@ -24,9 +24,9 @@ module.exports.checkout = (req, res, next) => {
             title: 'Shopping-Cart'
         });
     }
+
     const cart = new Cart(req.session.cart);
     const successMsg = req.flash('success')[0];
-    console.log(cart)
     res.render('cart/index', {
         products: cart.generateArray(),
         totalPrice: cart.totalPrice,
@@ -44,7 +44,7 @@ module.exports.deleteItemCart = (req, res, next) => {
             cart.totalPrice -= cart.items[id].price;
             delete cart.items[id];
             req.session.cart = cart;
-            console.log(req.session.cart.totalQuantity);
+            
             if (req.session.cart.totalQuantity === 0) {
                 req.session.destroy(() => {
                     return res.redirect('/cart')

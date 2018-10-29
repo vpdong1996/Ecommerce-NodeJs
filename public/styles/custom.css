@@ -14,9 +14,11 @@ body {
 * {
     box-sizing: border-box;
 }
+
 .orange {
-    color: tomato !important; 
+    color: tomato !important;
 }
+
 a {
     color: black;
 }
@@ -110,9 +112,16 @@ li.nav-item .btn {
 }
 
 .nav-item:hover a {
-    color: white!important;
+    color: white;
 }
 
+.nav-item:hover a.dropdown-item {
+    color: black;
+}
+.dropdown-item.disabled, .dropdown-item:disabled {
+    color: #6c757d!important;
+    background-color: transparent;
+}
 .notify {
     position: relative;
 }
@@ -151,21 +160,26 @@ form.search {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
 #createUser {
     border-radius: 30px;
     border: none;
-    background: linear-gradient(to right, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 #viewUser {
     border-radius: 30px;
     border: none;
-    background: linear-gradient(to right, #00b4db, #0083b0); 
+    background: linear-gradient(to right, #00b4db, #0083b0);
 }
-#removeUser{
+
+#removeUser {
     border-radius: 30px;
     border: none;
-    background: linear-gradient(to right, #fc4a1a, #f7b733); 
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
 }
+
 .carousel-caption {
     top: 20%;
 }
@@ -244,7 +258,6 @@ figure {
     background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #ffd194, #70e1f5);
-    
     position: relative;
     padding: 3em;
 }
@@ -294,16 +307,20 @@ figure {
     border-radius: 30px;
     transition: all 0.3s ease 0s;
 }
-.details_image_large{
+
+.details_image_large {
     width: 100%;
 }
+
 .details_image_thumbnails {
     margin-top: 17px;
 }
+
 .details_image_thumbnail {
     width: calc((100% - 51px) / 4);
     cursor: pointer;
 }
+
 .details_name {
     font-size: 24px;
     font-weight: 500;
@@ -338,16 +355,19 @@ figure {
 .product-quantity * {
     display: inline-block;
 }
+
 #quantity {
     border-radius: 30px;
     background: #7A883B
 }
-#quantity span{
+
+#quantity span {
     padding: 20px;
     color: white;
     font-weight: 700;
     font-size: 20px;
 }
+
 #product-quantity-input {
     background-color: #eee;
     border: none;
@@ -364,22 +384,26 @@ figure {
 .product-quantity-subtract {
     margin-right: 20px;
 }
+
 #add_button {
     border-radius: 30px;
     border: none;
     background: #C17A41;
     margin-left: auto;
 }
+
 #add_button a {
     color: white;
     font-weight: 700;
     text-decoration: none;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
+
 #add_button a:hover {
     color: white;
     text-decoration: none;
 }
+
 .details_share {
     margin-top: 51px;
     border-top: solid 1px #d0d0d0;
@@ -819,10 +843,8 @@ a.remove:hover {
 
 .promoCode .btn {
     font-size: 0.85em;
-    paddding: 0.5em 2em;
+    padding: 0.5em 2em;
 }
-
-/* TOTAL AND CHECKOUT  */
 
 .subtotal {
     float: right;
@@ -855,6 +877,130 @@ a.remove:hover {
 .subtotal .totalRow .value {
     letter-spacing: -0.025em;
     width: 35%;
+}
+
+
+
+
+
+.user {
+    width: 90%;
+    max-width: 340px;
+    margin: 10vh auto;
+}
+
+.user__header {
+    text-align: center;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+.user__title {
+    font-size: 14px;
+    margin-bottom: -10px;
+    font-weight: 500;
+    color: white;
+}
+
+#signupForm {
+    width: 50%;
+    margin: 100px auto;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.9s forwards;
+    border: 1px solid lightgray;
+}
+.login{
+    width: 65%;
+    margin: 0 auto;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.9s forwards;
+}
+.signupText{
+    color: #11998e;
+    /* text-decoration: #11998e */
+}
+.signupText:hover{
+    text-decoration: none;
+    color: #11998e;
+}
+.form--no {
+    animation: NO 1s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+.form__input:focus {
+    background: #f7f7f7;
+}
+
+#signup {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #ABA194;
+    transition: 0.3s;
+}
+
+#signup:hover {
+    background: #a09486;
+}
+
+@keyframes NO {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes arrive {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
 
 @media only screen and (max-width: 39.375em) {
