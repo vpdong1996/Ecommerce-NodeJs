@@ -1,6 +1,6 @@
 extends ../layout/common
 block content
-    h1.text-center Login
+    h2.text-center Login
     form.login.p-5( method="POST")
         if errors
             each error in errors
@@ -15,4 +15,4 @@ block content
         button.btn.btn-info Login
         .signupPopup.float-right
             span.ml-5 Don't have an account?
-            a.signupText(href="/authen/signup").ml-3 Sign up instead!   
+            a.signupText(href="/authen/signup").ml-3 Sign up instead!

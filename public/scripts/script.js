@@ -1,12 +1,21 @@
 $(document).ready(function () {
-  console.log('Hello World');
+  // console.log('Hello World 2');
+  $(document).on("scroll", function () {
+    if
+    ($(document).scrollTop() > 1) {
+      $('.navbar').addClass("bg-white fixed-top border-bottom");
+    }
+    else {
+      $('.navbar').removeClass(" fixed-top border-bottom");
+    }
+  });
   new WOW().init();
   // Remove Items From Cart
   $('a.remove').click(function () {
     $(this).parent().parent().parent().hide(400);
 
   })
-  $("#removeUser").click(function(e) {
+  $("#removeUser").click(function (e) {
     e.preventDefault();
     return confirm("Are you sure you want to delete?");
   })
@@ -75,6 +84,6 @@ $(document).ready(function () {
     form.classList.add('form--no');
 
   });
-  
+
 })
 

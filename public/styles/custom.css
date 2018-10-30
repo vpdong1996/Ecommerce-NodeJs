@@ -3,17 +3,20 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 body {
+    margin: 0px;
     font-family: 'Roboto', sans-serif;
-    /* background: #f6f6f6 none repeat scroll 0 0; */
     /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
-* {
-    box-sizing: border-box;
-}
+
 
 .orange {
     color: tomato !important;
@@ -94,17 +97,28 @@ li.nav-item .btn {
     font-family: 'Raleway', sans-serif;
     border-radius: 40px;
 }
-
+.border-bottom {
+    border-bottom: 1px solid #ebebeb !important;
+}
 .box {
-    
-    border: 2px solid tomato;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, tomato 100%)!important;
+    transition: 0.5s;
+    background-size: 200% auto;
+
 }
-.box:last-child {
-    background: tomato;
-    
+.box:hover {
+    /* background: white; */
+    /* background: none!important; */
+    background-color: none;
+    background-position: right center;
+
 }
-.box:last-child a {
+.box a {
     color: white;
+    font-weight: 700;
 }
 
 .bold {
@@ -115,8 +129,7 @@ li.nav-item .btn {
 }
 
 .nav-item:hover {
-    
-    background: tomato;
+    background-color: tomato;
 }
 
 .nav-item:hover a {
@@ -138,11 +151,11 @@ li.nav-item .btn {
     position: absolute;
     user-select: none;
     cursor: default;
-    font-size: 0.8rem;
-    background: #C74B04;
+    font-size: 1rem;
+    background: #FF8008;
     width: 1.6rem;
     height: 1.6rem;
-    color: #ecf0f1;
+    color: white;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +164,6 @@ li.nav-item .btn {
     right: -.96rem;
     box-sizing: border-box;
 }
-
 form.search {
     position: relative;
 }
@@ -212,7 +224,9 @@ form.search {
     background-position: right center;
 }
 .carousel-caption {
-    top: 20%;
+    position: absolute;
+    top: 25%;
+    left: 56%;
 }
 
 .carousel-caption h1 {
@@ -224,13 +238,19 @@ form.search {
 }
 
 .btn-info-custom {
-    background-color: #6648b1;
-    border: 1px solid #6648b1;
+    background-color: black!important;
+    border: 1px solid white!important;
     color: white;
-    text-shadow: 1px 1px 10px black;
+    padding: 0.5rem 1rem;
+    transition: 0.3ms ease-in all;
+}
+.btn-info-custom:hover {
+    background-color: white!important;
+    border: 1px solid black!important;
+    color: black!important;
+
     padding: 0.5rem 1rem;
 }
-
 .slider {
     width: 650px;
     margin: 0 auto;

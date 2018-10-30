@@ -1,34 +1,25 @@
 extends ./layout/common
 block carousel
     #carouselExampleControls.carousel.slide(data-ride='carousel')
+        ol.carousel-indicators
+            li.active(data-target='#carouselExampleControls' data-slide-to='0')
+            li(data-target='#carouselExampleControls' data-slide-to='1')
+            li(data-target='#carouselExampleControls' data-slide-to='2')
         .carousel-inner
             .carousel-item.active
-                img.d-block.w-100(src='https://assets.justinmind.com/blog/wp-content/uploads/2018/03/designing-iPhone-x-with-justinmind-header.png' alt='Third slide' height="669")
-                .carousel-caption.d-none.d-md-block
-                    h1.display-2 Welcome To The Shop
-                    h3.display-4 We're changing the
-                    h3.display-4 World with technology
-                    a.btn.btn-info-custom.float-none.mt-3(href=`/products`) Shop Now 
+                img.d-block.w-100(src='https://s7d2.scene7.com/is/image/SamsungUS/DT-TradeIn-100418-v2?$cm-g-fb-full-bleed-img-jpg$' alt='Third slide' height="669")
+                .carousel-caption.d-md-block
+                    h2 Upgrade to Galaxy now and double your trade-in value, up to $600*
+                    h4.display-6.text-white No matter what you love to do, do it even better with Galaxy. 
+                    a.btn.btn-info-custom.mt-3(href=`/products`) Shop Now 
             .carousel-item
                 img.d-block.w-100(src='https://www.gradwell.com/wp-content/uploads/2018/05/S8-BANNER.png' alt='Second slide' height="669")
             .carousel-item
                 img.d-block.w-100(src='http://apple8.com.vn/upload/news/media/39.2018/iphone-xr-banner.jpg' alt='First slide' height="669")
-        a.carousel-control-prev(href='#carouselExampleControls' role='button' data-slide='prev')
-            span.carousel-control-prev-icon(aria-hidden='true')
-            span.sr-only Previous
-        a.carousel-control-next(href='#carouselExampleControls' role='button' data-slide='next')
-            span.carousel-control-next-icon(aria-hidden='true')
-            span.sr-only Next
+block mainPage
     .container-fluid.p-0
         h2.text-center.projTitle FEATURED PRODUCTS
         .row
-            //- each product in products 
-            //-     .col-md-4.d-flex.justify-content-center.wow.lightSpeedIn  
-            //-         .card.border-white(style='width: 18rem;')
-            //-             img.card-img-top(src=product.image alt='Card image cap')
-            //-             .card-body.d-flex.flex-column.align-items-center
-            //-                 p.card-text=product.description
-            //-                 a.btn.btn-info.text-white(href=`/products/${product.id}`) See detail
             each product in products
                 .col-md-4.d-flex.justify-content-center.wow.lightSpeedIn
                     .card.border-white(style='width: 18rem;')

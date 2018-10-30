@@ -16,7 +16,11 @@ const productsRoute = require('./routes/products.route');
 const authenRoute = require('./routes/authen.route');
 const cartRoute = require('./routes/cart.route');
 const checkoutRoute = require('./routes/checkout.route');
+
 const Product = require('./models/product.model');
+
+//API 
+const apiProductRoute = require('./api/routes/products.route');
 
 const authenMiddle = require('./middlewares/authen.middleware');
 // const sessionMiddle = require('./middlewares/session.middleware');
@@ -63,6 +67,7 @@ app.use('/authen/', authenRoute);
 app.use('/products', productsRoute);
 app.use('/cart', cartRoute);
 app.use('/payment', checkoutRoute);
+app.use('/api/products', apiProductRoute);
 
 
 app.listen(port, () => {
