@@ -8,7 +8,7 @@ module.exports.postLogin = async (req, res, next) => {
     const user = await User.findOne({
         email
     });
-    
+
     if (!user) {
         res.render('authen/login', {
             errors: [
@@ -28,24 +28,31 @@ module.exports.postLogin = async (req, res, next) => {
         return;
     }
     res.cookie('userId', user.id, {
-        signed : true
+        signed: true
     });
     next();
 }
 module.exports.postSignUp = async (req, res, next) => {
-    const email = await User.findOne({email : req.body.email});
-    const name = await User.findOne({email : req.body.name});
-    if(!req.body.email){
+    const email = await User.findOne({ email: req.body.email });
+    const name = await User.findOne({ email: req.body.name });
+    if (!req.body.email) {
         req.flash('error', "Email is empty!");
         return res.redirect('/authen/signup');
     }
-    if(email){
+    if (email) {
         req.flash('error', "Email is already in use. Please try with a diffirent Email!");
         return res.redirect('/authen/signup');
     }
-    if(name){
+    if (name) {
         req.flash('error', "Name is already in use. Please try with a diffirent Name!");
         return res.redirect('/authen/signup');
+    }
+    next();
+}
+module.exports.checkOut = (req, res, next) => {
+    if (!req.signedCookies.userId) {
+        req.session.oldUrl = req.originalUrl;
+        return res.redirect('/authen/login');
     }
     next();
 }

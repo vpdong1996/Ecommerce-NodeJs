@@ -1,13 +1,7 @@
 const Cart = require('../models/cart.model');
+const Order = require('../models/order.model');
 
 module.exports.index = (req, res) => {
-    // if (!req.session.cart) {
-    //     return res.redirect('/cart')
-    // }
-    if (!req.signedCookies.userId){
-        res.redirect('/authen/login');
-        return;
-    }
     const cart = new Cart(req.session.cart);
     const errMsg = req.flash('error')[0];
     res.render('cart/payment', {
@@ -19,9 +13,6 @@ module.exports.index = (req, res) => {
     });
 };
 module.exports.postPayment = (req, res, next) => {
-    if (!req.session.cart) {
-        return res.redirect('/cart')
-    }
     const cart = new Cart(req.session.cart);
     const stripe = require("stripe")("sk_test_8HT4PKspFFUE5DxKtqbovt1s");
 
@@ -30,13 +21,21 @@ module.exports.postPayment = (req, res, next) => {
         currency: "usd",
         source: req.body.stripeToken, // obtained with Stripe.js
         description: "Test charge for dongkg3876@example.com"
-    }, function (err, charge) {
+    }, async function (err, charge) {
         // asynchronously called
         if(err) {
             req.flash('error', err.message);
             return res.redirect('/payment');
         }
-
+        const order = new Order({
+            user: req.signedCookies.userId,
+            cart: cart,
+            address: req.body.address,
+            name: req.body.name,
+            email: req.body.email,
+            paymentId: charge.id
+        })
+        await order.save();
         req.flash('success', "Successfully bought product!");
         req.session.cart = null;
         res.redirect('/cart');        

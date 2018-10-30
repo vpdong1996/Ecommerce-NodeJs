@@ -13,7 +13,15 @@ module.exports.login = (req, res) => {
     });
 };
 module.exports.postLogin = (req, res) => {
-    res.redirect('/contact');
+    if(req.session.oldUrl) {
+        const oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    }
+    else {
+        res.redirect('/contact');
+    }
+    
 }
 module.exports.signup = (req, res, next) => {
     const errorMsg = req.flash('error')[0];
@@ -27,9 +35,15 @@ module.exports.postSignup = async (req, res,  next) => {
         email: req.body.email,
         password: md5(req.body.password),
         name: req.body.name
-
     });
     await newUser.save();
     req.flash('success', "Successfully Create an Account. Please login!");
-    res.redirect('/authen/login');
+    if(req.session.oldUrl) {
+        res.redirect(req.session.oldUrl);
+        req.session.oldUrl = null;
+    }
+    else {
+        res.redirect('/authen/login');
+    }
+   
 }
