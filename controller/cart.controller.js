@@ -52,5 +52,4 @@ module.exports.deleteItemCart = (req, res, next) => {
             }
         }
     }
-    res.redirect('/cart');
 }
