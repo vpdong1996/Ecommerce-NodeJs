@@ -1,18 +1,60 @@
-extends ../layout/common
-block content
-    h2.text-center Login
-    form.login.p-5( method="POST")
-        if errors
-            each error in errors
-                .alert.alert-danger= error
-        if successMsg
-            .alert.alert-success #{successMsg}
-        .form-group
-            label(for="name") Email  
-            input#name(type="text", name="email", class="form-control", value=values ? values.name : "", placeholder="Enter your email")
-            label(for="phone") Password  
-            input#phone(type="password", name="password",class="form-control", value=values ? values.phone : "", placeholder="Your password")
-        button.btn.btn-info Login
-        .signupPopup.float-right
-            span.ml-5 Don't have an account?
-            a.signupText(href="/authen/signup").ml-3 Sign up instead!
+
+block loginCSS
+    link(rel="shortcut icon", href="https://res.cloudinary.com/dongvu/image/upload/v1540956568/if_nodejs_new_pantone_black_1012818_fIs_icon.ico", type="image/x-icon")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/login.css")
+    title #{title}
+section.login-block
+  .container
+    .row
+      .col-md-4.login-sec
+        h2.text-center Login Now
+        form.login-form(method="POST")
+          .form-group
+            label.text-uppercase(for='exampleInputEmail1') Email
+            input.form-control(type='email' ,name="email", value=values ? values.name : "", placeholder="Enter your email", required)
+          .form-group
+            label.text-uppercase(for='exampleInputPassword1') Password
+            input.form-control(type='password',name="password", placeholder='', value=values ? values.name : "",required)
+          .form-check
+            label.form-check-label
+              small Don't have account? 
+                a(href="/authen/signup") Sign Up
+            button.btn.btn-login.float-right Submit
+        .copy-text
+          | Created with 
+          i.fa.fa-heart
+          |  by 
+          a(href='http://grafreez.com') DongVu
+      .col-md-8.banner-sec
+        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+          ol.carousel-indicators
+            li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+            li(data-target='#carouselExampleIndicators' data-slide-to='1')
+            li(data-target='#carouselExampleIndicators' data-slide-to='2')
+          .carousel-inner(role='listbox')
+            .carousel-item.active
+              img.d-block.img-fluid(src='https://static.pexels.com/photos/33972/pexels-photo.jpg' alt='First slide')
+              .carousel-caption.d-none.d-md-block
+                .banner-text
+                  h2 This is Heaven
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            .carousel-item
+              img.d-block.img-fluid(src='https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg' alt='First slide')
+              .carousel-caption.d-none.d-md-block
+                .banner-text
+                  h2 This is Heaven
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            .carousel-item
+              img.d-block.img-fluid(src='https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg' alt='First slide')
+              .carousel-caption.d-none.d-md-block
+                .banner-text
+                  h2 This is Heaven
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+
+

@@ -2,7 +2,7 @@ $(document).ready(function () {
   // console.log('Hello World 2');
   $(document).on("scroll", function () {
     if
-    ($(document).scrollTop() > 1) {
+    ($(document).scrollTop() > 50) {
       $('.navbar').addClass("bg-white fixed-top border-bottom");
     }
     else {

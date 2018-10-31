@@ -1,15 +1,57 @@
-extends ../layout/common
-block content
-    h2.text-center Sign Up Form
-    if errorMsg 
-        .alert.alert-danger #{errorMsg}
-    form.form#signupForm(method="POST", action="/authen/signup")
-        .form__group
-            input.form__input(type='text', placeholder='Your name',name="name", required)
-        .form__group
-            input.form__input(type='email', placeholder='Email',name="email", required)
-        .form__group
-            input.form__input(type='password', placeholder='Password',name="password", required)
-        button#signup(type='submit') Register
+
+block loginCSS
+    link(rel="shortcut icon", href="https://res.cloudinary.com/dongvu/image/upload/v1540956568/if_nodejs_new_pantone_black_1012818_fIs_icon.ico", type="image/x-icon")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/login.css")
+    title #{title}
+section.login-block
+  .container
+    .row
+      .col-md-4.login-sec
+        h2.text-center Sign Up Now
+        form.login-form(method="POST", action="/authen/signup")
+          .form-group
+            label.text-uppercase(for='exampleInputEmail1') Name
+            input.form-control(type='text' placeholder='', name="name", required)
+          .form-group
+            label.text-uppercase(for='exampleInputEmail1') Email
+            input.form-control(type='email' placeholder='', name="email", required)  
+          .form-group
+            label.text-uppercase(for='exampleInputPassword1') Password
+            input.form-control(type='password' placeholder='', name="password", required)
+
+            button.btn.btn-login.float-right.mt-3(type='submit') Register
+      .col-md-8.banner-sec
+        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+          ol.carousel-indicators
+            li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+            li(data-target='#carouselExampleIndicators' data-slide-to='1')
+            li(data-target='#carouselExampleIndicators' data-slide-to='2')
+          .carousel-inner(role='listbox')
+            .carousel-item.active
+              img.d-block.img-fluid(src='https://static.pexels.com/photos/33972/pexels-photo.jpg' alt='First slide')
+              .carousel-caption.d-none.d-md-block
+                .banner-text
+                  h2 This is Heaven
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            .carousel-item
+              img.d-block.img-fluid(src='https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg' alt='First slide')
+              .carousel-caption.d-none.d-md-block
+                .banner-text
+                  h2 This is Heaven
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            .carousel-item
+              img.d-block.img-fluid(src='https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg' alt='First slide')
+              .carousel-caption.d-none.d-md-block
+                .banner-text
+                  h2 This is Heaven
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+
+
 
 

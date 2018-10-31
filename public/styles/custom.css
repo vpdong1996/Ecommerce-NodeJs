@@ -265,7 +265,7 @@ figure {
 }
 
 #hero1 {
-    background: rgba(0, 0, 0, 0.7) url(../images/logo/mac.png) repeat;
+    background: rgba(0, 0, 0, 0.7) url(https://res.cloudinary.com/dongvu/image/upload/v1540955955/mac.png) repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
