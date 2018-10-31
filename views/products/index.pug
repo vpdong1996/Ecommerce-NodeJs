@@ -1,10 +1,15 @@
 extends ../layout/common
 block content
-    h1.text-center.projTitle Products List
+    figure#hero2.hero.mt-5
+            .inner
+                .copy.left-s
+                    h1 Smart Phones
+                        span.red .
+                    p.text-white Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.
     - var perpage = 3;
     - var numRow = 2;
     - var n = 0;
-    form.ml-auto.search(action="/products/search",method="GET",class="form-group d-flex")
+    form.m-auto.search(action="/products/search",method="GET",class="form-group d-flex")
             input.searchInput(type="text", name="p",class="form-control" )
             button.searchBtn(class="btn btn-info ml-2") Search
     while n < numRow
@@ -15,7 +20,7 @@ block content
             - var productInRow = products.slice(firstProduct, lastProduct);
             .row(id=n)
                 each product in productInRow   
-                    .col-md-4.p-4.d-flex.justify-content-center.wow.lightSpeedIn
+                    .col-md-4.p-4.d-flex.justify-content-center.animated.fadeInUpBig
                         .card.border-white(style='width: 18rem;')
                             img.card-img-top(src=product.image alt='img')
                             .card-body.text-center

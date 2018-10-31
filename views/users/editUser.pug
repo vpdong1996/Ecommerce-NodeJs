@@ -1,5 +1,5 @@
 extends ../layout/common
-block content
+block mainPage  
     h1 Edit User
     form(action=`/contact/${user.id}/update` , method="POST", enctype="multipart/form-data")
         if errors

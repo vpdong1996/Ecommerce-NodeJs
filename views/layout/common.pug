@@ -41,9 +41,10 @@ html
                                     span.notification--num #{session.cart.totalQuantity}
                     
         block carousel                
-        .container
+        .container-fluid.p-0
             block content
-        block mainPage
+        .container
+            block mainPage
         section.footers.bg-light.pt-5.pb-3
             .container.pt-5
                 .row

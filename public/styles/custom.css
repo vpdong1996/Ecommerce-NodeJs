@@ -166,6 +166,7 @@ li.nav-item .btn {
 }
 form.search {
     position: relative;
+    width: 40%;
 }
 
 .searchInput {
@@ -179,8 +180,15 @@ form.search {
     border-radius: 40px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    background-image: linear-gradient(to right, #7b4397 0%, #dc2430 51%, #7b4397 100%)!important;
+    transition: 0.5s;
+    background-size: 300% auto!important;
+    border: none!important;
 }
+.searchBtn:hover{
+    background-position: right center!important;
 
+}
 #createUser {
     border-radius: 30px;
     border: none;
@@ -263,14 +271,36 @@ figure {
     /* margin: 0!important; */
     text-align: center;
 }
-
+.red {
+    color: tomato;
+}
+/* .hero {
+    background: rgba(0, 0, 0, 0.7) url(https://res.cloudinary.com/dongvu/image/upload/v1540955955/mac.png) repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+} */
 #hero1 {
     background: rgba(0, 0, 0, 0.7) url(https://res.cloudinary.com/dongvu/image/upload/v1540955955/mac.png) repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
 }
-
+#hero2 {
+    background: rgba(0, 0, 0, 0.7) url(https://colorlib.com/preview/theme/sublime/images/categories.jpg) repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+#hero3 {
+    background: rgba(0, 0, 0, 0.7) url(https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.shadow{
+    text-shadow: 3px 2px 8px black;
+}
 .inner {
     min-height: 600px;
     position: relative;
@@ -284,7 +314,16 @@ figure {
     width: 100%;
     color: white;
 }
-
+.left-s {
+    top: 40%!important;
+    width: 38%!important;
+    text-align: left;
+    margin-left: 15%;
+}
+.left-s p {
+    line-height: 2.15;
+    font-size: 1rem;
+}
 .icon_box_image {
     width: 75px;
     height: 75px;
