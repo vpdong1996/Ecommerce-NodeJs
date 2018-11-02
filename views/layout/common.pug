@@ -20,20 +20,23 @@ html
                 ul.navbar-nav.m-auto
                     li.nav-item
                         a.nav-link.p-0(href='/') Home
-                    li.nav-item.dropdown
-                        a.nav-link.dropdown-toggle(data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false') User
-                        .dropdown-menu
-                            a.dropdown-item(href='/contact') Profile
-                            if user
-                                a.dropdown-item.disabled(href='') Login
-                                a.dropdown-item.disabled(href='') Sign Up
-                            else
-                                a.dropdown-item(href='/authen/login') Login
-                                a.dropdown-item(href='/authen/signup') Sign Up
                     li.nav-item
                         a.nav-link.p-0(href='/products') Products
                     li.nav-item
                         a.nav-link.p-0(href='/') About Us
+                    li.nav-item.dropdown
+                        a.nav-link.dropdown-toggle(data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false')
+                            if session.user
+                                span #{session.user.name}
+                            else
+                                span User
+                        .dropdown-menu
+                            a.dropdown-item(href=`/contact/${session.user._id}`) Profile
+                            if session.user
+                                a.dropdown-item(href='/contact/:id') My orders
+                            else
+                                a.dropdown-item(href='/authen/login') Login
+                                a.dropdown-item(href='/authen/signup') Sign Up
                 .cartItem
                         li.nav-item.box.notify
                             a.nav-link.p-0.cart(href='/cart') Cart
