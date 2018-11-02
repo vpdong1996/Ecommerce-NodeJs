@@ -88,6 +88,7 @@ li.nav-item .btn {
 } */
 
 .nav-item {
+    text-transform: capitalize;
     list-style: none;
     padding: 0 17px;
     margin: 0 10px;
