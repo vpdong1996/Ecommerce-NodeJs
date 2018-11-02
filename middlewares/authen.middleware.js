@@ -3,6 +3,7 @@ const User = require('../models/user.model');
 
 module.exports.requireAuthen = async (req, res, next) => {
     if (!req.signedCookies.userId){
+        req.session.user = null;
         res.redirect('/authen/login');
         return;
     }
@@ -16,6 +17,6 @@ module.exports.requireAuthen = async (req, res, next) => {
         return;
     }
 
-    res.locals.user = user;
+    req.session.user = user;
     next();
 }

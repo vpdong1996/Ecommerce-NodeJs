@@ -54,9 +54,11 @@ app.use(passport.session());
 app.use(express.static('public'))
 
 
+
 app.get('/', async function(req, res) {
     // console.log(req.signedCookies.userId)
     const products = await Product.find().skip(17).limit(3);
+    console.log(req.signedCookies);
     res.render('index', {
         products,
         title : 'Homepage'
