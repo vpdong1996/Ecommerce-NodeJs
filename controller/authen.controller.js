@@ -48,7 +48,7 @@ module.exports.postSignup = async (req, res,  next) => {
    
 }
 module.exports.logOut = (req, res, next) => {
-    delete req.session.userId;
     delete req.session.user;
+    res.clearCookie('userId');
     res.redirect('/');
 }

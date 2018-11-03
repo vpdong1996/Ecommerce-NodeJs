@@ -56,9 +56,7 @@ app.use(express.static('public'))
 
 
 app.get('/', async function(req, res) {
-    // console.log(req.signedCookies.userId)
     const products = await Product.find().skip(17).limit(3);
-    console.log(req.signedCookies);
     res.render('index', {
         products,
         title : 'Homepage'
@@ -68,7 +66,7 @@ app.use('/contact', authenMiddle.requireAuthen, userRoute);
 app.use('/authen/', authenRoute);
 app.use('/products', productsRoute);
 app.use('/cart', cartRoute);
-app.use('/payment', checkoutRoute);
+app.use('/payment', authenMiddle.requireAuthen, checkoutRoute);
 app.use('/api/products', apiProductRoute);
 
 

@@ -1,5 +1,6 @@
 
 const User = require('../models/user.model');
+const Order = require('../models/order.model');
 const cloudinary = require('cloudinary');
 
 cloudinary.config({
