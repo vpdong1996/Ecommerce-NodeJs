@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // console.log('Hello World 2');
   $(document).on("scroll", function () {
     if
     ($(document).scrollTop() > 50) {

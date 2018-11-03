@@ -35,8 +35,8 @@ html
                                 a.dropdown-item(href='/authen/login') Login
                                 a.dropdown-item(href='/authen/signup') Sign Up
                             else
-                                a.dropdown-item(href=`/contact/${session.user.id}`) Profile
-                                a.dropdown-item(href='/contact/:id') My orders
+                                a.dropdown-item(href=`/contact`) Profile
+                                a.dropdown-item(href=`/contact/${session.user._id}`) My orders
                                 a.dropdown-item(href="/authen/logout") Log Out
                 .cartItem
                         li.nav-item.box.notify

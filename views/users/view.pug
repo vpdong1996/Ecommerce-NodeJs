@@ -1,4 +1,32 @@
 extends ../layout/common
-block mainPage   
-    h1 My Order
+block content   
+    figure#hero4.hero.mt-5
+            .inner
+                .copy
+                    h1.shadow My Order
+                        span.red .
+                    p.text-white.shadow Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.
     .container
+        each product in products
+            table.table.table-xs.table-bordered
+                tr.table-warning
+                    th
+                    th Description
+                    th.text-center Amount
+                    th Price
+                    th Total
+                each cart in product.items
+                    //- p #{cart.item.name}
+                    tr.item-row
+                        td.d-flex.justify-content-center 
+                            img(src=cart.item.image, height="100", width="100")
+                        td
+                            p 
+                                strong #{cart.item.name}
+                            p Amet et esse do nostrud id irure cupidatat labore nulla irure laboris
+                        td.text-center(title="Amount") #{cart.quantity}
+                        td(title="Price") #{cart.item.price}
+                        td(title="Total") #{cart.price}
+                tr.total-row.table-info
+                    td(colspan="4").bold Total
+                    td.bold $#{product.cart.totalPrice}

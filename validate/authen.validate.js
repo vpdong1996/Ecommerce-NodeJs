@@ -50,7 +50,7 @@ module.exports.postSignUp = async (req, res, next) => {
     next();
 }
 module.exports.checkOut = (req, res, next) => {
-    if (!req.session.user) {
+    if (!req.signedCookies.userId) {
         req.session.oldUrl = req.originalUrl;
         return res.redirect('/authen/login');
     }

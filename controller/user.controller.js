@@ -1,6 +1,7 @@
 
 const User = require('../models/user.model');
 const Order = require('../models/order.model');
+const Cart = require('../models/cart.model');
 const cloudinary = require('cloudinary');
 
 cloudinary.config({
@@ -29,10 +30,16 @@ module.exports.create = (req, res) => {
     res.render('users/createUser');
 }
 module.exports.viewId = async (req, res) => {
-    const id = req.params.id;
-    const user = await User.findById({ _id: id });
+    const orders = await Order.find({
+        user: req.signedCookies.userId
+    })
+    orders.forEach(order => {
+        const cart = new Cart(order.cart);
+        order.items = cart.generateArray();
+    })
+
     res.render('users/view', {
-        user: user
+        products: orders
     });
 }
 module.exports.deleteId = async (req, res) => {
