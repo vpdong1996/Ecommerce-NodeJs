@@ -30,6 +30,7 @@ module.exports.postLogin = async (req, res, next) => {
     res.cookie('userId', user.id, {
         signed: true
     });
+    console.log(req.signedCookies.userId);
     next();
 }
 module.exports.postSignUp = async (req, res, next) => {
@@ -47,12 +48,6 @@ module.exports.postSignUp = async (req, res, next) => {
         req.flash('error', "Name is already in use. Please try with a diffirent Name!");
         return res.redirect('/authen/signup');
     }
-    next();
-}
-module.exports.checkOut = (req, res, next) => {
-    if (!req.signedCookies.userId) {
-        req.session.oldUrl = req.originalUrl;
-        return res.redirect('/authen/login');
-    }
+
     next();
 }

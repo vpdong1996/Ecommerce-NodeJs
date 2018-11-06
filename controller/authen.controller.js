@@ -13,6 +13,7 @@ module.exports.login = (req, res) => {
     });
 };
 module.exports.postLogin = (req, res) => {
+    console.log(req.signedCookies.userId);
     if(req.session.oldUrl) {
         const oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;

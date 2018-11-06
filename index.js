@@ -23,6 +23,7 @@ const Product = require('./models/product.model');
 const apiProductRoute = require('./api/routes/products.route');
 
 const authenMiddle = require('./middlewares/authen.middleware');
+const authenValidate = require('./validate/authen.validate');
 // const sessionMiddle = require('./middlewares/session.middleware');
 
 
@@ -57,6 +58,7 @@ app.use(express.static('public'))
 
 app.get('/', async function(req, res) {
     const products = await Product.find().skip(17).limit(3);
+    console.log(req.signedCookies.userId)
     res.render('index', {
         products,
         title : 'Homepage'

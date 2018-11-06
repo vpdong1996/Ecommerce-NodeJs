@@ -2,17 +2,18 @@ const User = require('../models/user.model');
 
 
 module.exports.requireAuthen = async (req, res, next) => {
-    if (!req.signedCookies.userId){
+    if (!req.signedCookies.userId) {
         req.session.user = null;
+        req.session.oldUrl = req.originalUrl;
         res.redirect('/authen/login');
         return;
     }
-    
+
     const user = await User.findOne({
-        _id : req.signedCookies.userId
+        _id: req.signedCookies.userId
     });
 
-    if(!user){
+    if (!user) {
         res.redirect('/authen/login');
         return;
     }

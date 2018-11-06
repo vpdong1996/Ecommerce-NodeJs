@@ -44,11 +44,8 @@ module.exports.deleteItemCart = (req, res, next) => {
             cart.totalPrice -= cart.items[id].price;
             delete cart.items[id];
             req.session.cart = cart;
-            
+
             if (req.session.cart.totalQuantity === 0) {
-                // req.session.destroy(() => {
-                //     return res.redirect('/cart')
-                // });
                 delete req.session.cart;
                 return res.redirect('/cart');
             }
