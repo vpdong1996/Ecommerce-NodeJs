@@ -1,0 +1,56 @@
+extends ./layout/common
+block content
+    figure#hero5.hero.mt-5
+            .inner
+                .copy
+                    h1.mt-2.shadow About Us
+                        span.red .
+    .row.p-5
+        .col-md-12.col-lg-6
+            p.display-4 If you build with It.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labo et dolore magn aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia is be deserunt mollit anim est laborum. Sed ut perspiciatis unde omnis iste natus error sit. voluptatem accusantium doloremque laudantium,
+            p totam remes aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam.
+        .col-md-12.col-lg-6
+            img(src="https://pak-chatroom.com/assets/img/desk.png")
+    p.display-4.text-center.p-5 Meet The Team
+    .row.mb-5
+        //- .col-md-4.d-flex.justify-content-center
+        //-     .card(style='width: 24rem;')
+        //-         img.card-img-top(src='https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-9/21150200_1320135841417410_5731949232387231593_n.jpg?_nc_cat=109&_nc_ht=scontent.fsgn3-1.fna&oh=195401ad46d50efc8e3fa568654016e4&oe=5C750434' alt='Card image cap')
+        //-         .card-body
+        //-             h5.card-title Card title
+        //-             p.card-text
+        //-                 | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+        //-             a.btn.btn-primary(href='#') Go somewhere
+        //- .col-md-4.d-flex.justify-content-center
+        //-     .card(style='width: 24rem;')
+        //-         img.card-img-top(src='https://secure.meetupstatic.com/photos/member/4/d/3/2/highres_258259762.jpeg' alt='Card image cap')
+        //-         .card-body
+        //-             h5.card-title Card title
+        //-             p.card-text
+        //-                 | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+        //-             a.btn.btn-primary(href='#') Go somewhere
+        //- .col-md-4.d-flex.justify-content-center
+        //-     .card(style='width: 24rem;')
+        //-         img.card-img-top(src='https://secure.meetupstatic.com/photos/member/a/5/3/7/highres_265182295.jpeg' alt='Card image cap')
+        //-         .card-body
+        //-             h5.card-title Card title
+        //-             p.card-text
+        //-                 | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+        //-             a.btn.btn-primary(href='#') Go somewhere
+        mixin memberCard(src,title)
+            .col-md-4.d-flex.justify-content-center
+                .card(style='width: 24rem;')
+                    img.card-img-top(src=src alt='Card image cap')
+                    .card-body
+                        h5.card-title=title
+                        p.card-text
+                            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                        a.btn.btn-primary(href='#') See profile
+        +memberCard("https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-9/21150200_1320135841417410_5731949232387231593_n.jpg?_nc_cat=109&_nc_ht=scontent.fsgn3-1.fna&oh=195401ad46d50efc8e3fa568654016e4&oe=5C750434", "Dong Vu")
+        +memberCard("https://secure.meetupstatic.com/photos/member/4/d/3/2/highres_258259762.jpeg", "Freddy Mercury")
+        +memberCard("https://secure.meetupstatic.com/photos/member/a/5/3/7/highres_265182295.jpeg", "Jerry Chan")    
+
+                    
+                    

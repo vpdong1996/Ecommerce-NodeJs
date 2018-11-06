@@ -306,6 +306,12 @@ figure {
     background-position: center center;
     background-attachment: fixed;
 }
+#hero5 {
+    background: rgba(0, 0, 0, 0.7) url(https://images.pexels.com/photos/900106/pexels-photo-900106.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
 .shadow{
     text-shadow: 4px 5px 4px black;
 }

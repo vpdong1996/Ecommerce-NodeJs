@@ -62,6 +62,11 @@ app.get('/', async function(req, res) {
         title : 'Homepage'
     });
 });
+app.get('/about', (req, res ,next) => {
+    res.render('about', {
+        title: "About Us"
+    })
+})
 app.use('/contact', authenMiddle.requireAuthen, userRoute);
 app.use('/authen/', authenRoute);
 app.use('/products', productsRoute);
