@@ -33,14 +33,19 @@ module.exports.viewId = async (req, res) => {
     const orders = await Order.find({
         user: req.signedCookies.userId
     })
-    orders.forEach(order => {
-        const cart = new Cart(order.cart);
-        order.items = cart.generateArray();
-    })
-
-    res.render('users/view', {
-        products: orders
-    });
+    if (orders.length) {
+        orders.forEach(order => {
+            const cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        })
+    
+        res.render('users/view', {
+            products: orders
+        });
+    } else {
+        res.render('users/view');
+    }
+    
 }
 module.exports.deleteId = async (req, res) => {
     const id = req.params.id;
