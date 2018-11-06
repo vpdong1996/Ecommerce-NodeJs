@@ -22,36 +22,37 @@ block content
         .row
             each product in products
                 .col-md-4.d-flex.justify-content-center.animated.fadeInUp
-                    .card.border-white(style='width: 18rem;')
-                        img.card-img-top(src=product.image alt='img')
-                        .card-body.text-center
-                            h6.card-title=product.name
-                            .pro-rating
-                                a(href="#")
-                                    i.zmdi.zmdi-star
-                                a(href="#")
-                                    i.zmdi.zmdi-star
-                                a(href="#")
-                                    i.zmdi.zmdi-star
-                                a(href="#")
-                                    i.zmdi.zmdi-star-half
-                                a(href="#")
-                                    i.zmdi.zmdi-star-outline
-                            p.big.card-text $ #{product.price}.00
-                            .icon.d-flex.justify-content-center
-                                ul.action-button.list-unstyled.p-0.d-flex
-                                    li
-                                        a(href='#',data-toggle="tooltip", data-placement="right", title="Add to Favorite")
-                                            i.zmdi.zmdi-favorite
-                                    li
-                                        a(href=`/products/${product.id}`,data-toggle="tooltip", data-placement="right", title="View details")
-                                            i.zmdi.zmdi-zoom-in
-                                    li
-                                        a(href='#',,data-toggle="tooltip", data-placement="right", title="Refresh")
-                                            i.zmdi.zmdi-refresh
-                                    li
-                                        a(href=`/cart/add/${product.id}`,,data-toggle="tooltip", data-placement="right", title="Add to Cart")
-                                            i.zmdi.zmdi-shopping-cart-plus
+                    a(href=`/products/${product.id}`)
+                        .card.border-white(style='width: 18rem;')
+                            img.card-img-top(src=product.image alt='img')
+                            .card-body.text-center
+                                h6.card-title=product.name
+                                .pro-rating
+                                    a(href="#")
+                                        i.zmdi.zmdi-star
+                                    a(href="#")
+                                        i.zmdi.zmdi-star
+                                    a(href="#")
+                                        i.zmdi.zmdi-star
+                                    a(href="#")
+                                        i.zmdi.zmdi-star-half
+                                    a(href="#")
+                                        i.zmdi.zmdi-star-outline
+                                p.big.card-text $ #{product.price}.00
+                                .icon.d-flex.justify-content-center
+                                    ul.action-button.list-unstyled.p-0.d-flex
+                                        li
+                                            a(href='#',data-toggle="tooltip", data-placement="right", title="Add to Favorite")
+                                                i.zmdi.zmdi-favorite
+                                        li
+                                            a(href=`/products/${product.id}`,data-toggle="tooltip", data-placement="right", title="View details")
+                                                i.zmdi.zmdi-zoom-in
+                                        li
+                                            a(href='#',,data-toggle="tooltip", data-placement="right", title="Refresh")
+                                                i.zmdi.zmdi-refresh
+                                        li
+                                            a(href=`/cart/add/${product.id}`,,data-toggle="tooltip", data-placement="right", title="Add to Cart")
+                                                i.zmdi.zmdi-shopping-cart-plus
 
         .row.justify-content-center
             a(href="/products").btn.btn-primary.text-white.mt-5 VIEW ALL
