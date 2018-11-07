@@ -9,6 +9,8 @@ section.login-block
     .row
       .col-md-4.login-sec
         h2.text-center Sign Up Now
+        if errorMsg
+          h5.alert.alert-danger #{errorMsg}
         form.login-form(method="POST", action="/authen/signup")
           .form-group
             label.text-uppercase(for='exampleInputEmail1') Name

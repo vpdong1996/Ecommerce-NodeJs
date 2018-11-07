@@ -2,6 +2,7 @@ const md5 = require('md5');
 const User = require('../models/user.model');
 
 module.exports.postLogin = async (req, res, next) => {
+    let errors = [];
     const email = req.body.email;
     const password = req.body.password;
 
@@ -12,7 +13,7 @@ module.exports.postLogin = async (req, res, next) => {
     if (!user) {
         res.render('authen/login', {
             errors: [
-                'User doesnt exist '
+                "Email doesn't exist. Please try with a diffirent Email."
             ],
             values: req.body
         });
