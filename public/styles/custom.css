@@ -1104,6 +1104,18 @@ a.remove:hover {
         background-position: 0 0;
     }
 }
+@media only screen and (max-width : 768px) {
+    .carousel-caption h2 {
+        font-size: 2rem;
+    }
+    .qbstp-header-subscribe #email {
+        width: auto;
+        font-size: 1rem;
+    }
+    div > h3 {
+        font-size: 1.5rem;
+    }
+}
 
 @media only screen and (max-width: 39.375em) {
     .wrap {

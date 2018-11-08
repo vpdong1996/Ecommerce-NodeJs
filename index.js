@@ -58,7 +58,6 @@ app.use(express.static('public'))
 
 app.get('/', async function(req, res) {
     const products = await Product.find().skip(17).limit(3);
-    console.log(req.signedCookies.userId)
     res.render('index', {
         products,
         title : 'Homepage'

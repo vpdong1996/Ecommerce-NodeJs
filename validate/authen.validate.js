@@ -31,7 +31,6 @@ module.exports.postLogin = async (req, res, next) => {
     res.cookie('userId', user.id, {
         signed: true
     });
-    console.log(req.signedCookies.userId);
     next();
 }
 module.exports.postSignUp = async (req, res, next) => {
