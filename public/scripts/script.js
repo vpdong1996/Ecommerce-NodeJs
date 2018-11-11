@@ -76,13 +76,16 @@ $(document).ready(function () {
       }
     }
   });
-  const button = document.querySelector('.btn')
-  const form = document.querySelector('.form')
 
-  button.addEventListener('click', function () {
-    form.classList.add('form--no');
+  // $('.btn').on('click', function() {
+  //   $('.form').add
+  // })
+  // const button = document.querySelector('.btn')
+  // const form = document.querySelector('.form')
 
-  });
+  // button.addEventListener('click', function () {
+  //   form.classList.add('form--no');
+  // });
 
 })
 
