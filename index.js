@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const passport = require('passport');
+const nodemailer = require('nodemailer');
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -40,12 +41,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(cookieParser(process.env.SESSION_COOKIE));
 app.use(session({
     secret: 'mysupersecrect',
-    resave: false, 
+    resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: {maxAge: 180*60*1000}
+    cookie: { maxAge: 180 * 60 * 1000 }
 }));
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
@@ -56,18 +57,47 @@ app.use(express.static('public'))
 
 
 
-app.get('/', async function(req, res) {
+app.get('/', async function (req, res) {
     const products = await Product.find().skip(17).limit(3);
     res.render('index', {
         products,
-        title : 'Homepage'
+        title: 'Homepage'
     });
 });
-app.get('/about', (req, res ,next) => {
+app.post('/subcribe', (req, res, next) => {
+    let transporter = nodemailer.createTransport({
+        secure: false,
+        service: 'Gmail',
+        auth: {
+            user: process.env.SERVERMAIL,
+            pass: process.env.SERVERMAILPASS
+        }
+    });
+    let mailOptions = {
+        from: 'Đông Vũ', // sender address  
+        to: req.body.email, // list of receivers
+        subject: 'Thank you for subcribe!', // Subject line
+        text: 'Hello world? How you going? 1 ', // plain text body
+        html: `<b>It's an honor for us to be subcribed by you</b>` // html body
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        res.redirect('/');
+
+    });
+})
+app.get('/about', (req, res, next) => {
     res.render('about', {
         title: "About Us"
     })
 })
+
 app.use('/contact', authenMiddle.requireAuthen, userRoute);
 app.use('/authen/', authenRoute);
 app.use('/products', productsRoute);
